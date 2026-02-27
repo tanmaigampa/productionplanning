@@ -57,7 +57,7 @@ const Home: React.FC = () => {
 
       {/* ── Navbar ── */}
       <header className="border-b border-[#2a3348] bg-[#0f1117]/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="px-8 lg:px-16 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center shadow-glow-sky">
               <Zap size={16} className="text-white" />
@@ -70,7 +70,7 @@ const Home: React.FC = () => {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6 py-20 space-y-28">
+      <main className="px-8 lg:px-16 py-20 space-y-28">
 
         {/* ── Hero ── */}
         <section className="text-center animate-slide-up">
