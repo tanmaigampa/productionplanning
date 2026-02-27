@@ -93,14 +93,14 @@ const Home: React.FC = () => {
             <span className="text-sky-600">Execute with Precision.</span>
           </h1>
 
-          <p className="text-lg text-slate-500 max-w-xl leading-[1.75] mt-6">
+          <p className="text-lg text-slate-500 max-w-xl leading-[1.75] mt-5">
             A next-generation optimization that models uncertainty and prepares your
             production strategy for every scenario.
           </p>
 
           <button
             onClick={scrollToSectors}
-            className="btn-primary text-base px-8 py-3 mt-10"
+            className="btn-primary text-base px-8 py-3 mt-8"
           >
             Select Sector <ChevronRight size={16} />
           </button>
@@ -111,7 +111,7 @@ const Home: React.FC = () => {
           src={heroIllustration}
           alt="Professionals across industry sectors"
           className="absolute bottom-0 left-0 w-full pointer-events-none"
-          style={{ height: '38vh', objectFit: 'cover', objectPosition: 'bottom center' }}
+          style={{ height: '32vh', objectFit: 'cover', objectPosition: 'bottom center' }}
         />
 
       </section>
