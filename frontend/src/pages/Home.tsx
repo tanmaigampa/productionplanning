@@ -115,40 +115,40 @@ const Home: React.FC = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {FEATURES.map(({ icon: Icon, color, bg, title, desc }) => (
-              <div key={title} className="card group hover:border-sky-500/30 transition-all duration-300 p-8">
+              <div key={title} className="card group hover:border-[#3b455c]/50 border border-[#2a3348] bg-[#13161f] transition-all duration-300 p-10 flex flex-col items-start text-left">
                 <div className={`w-14 h-14 rounded-xl border flex items-center justify-center mb-6 ${bg}`}>
-                  <Icon size={28} className={color} />
+                  <Icon size={26} className={color} />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
-                <p className="text-base text-slate-400 leading-relaxed">{desc}</p>
+                <p className="text-base text-slate-400 leading-relaxed font-normal">{desc}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* ── Sectors ── */}
-        <section ref={sectorsRef}>
-          <div className="text-center mb-16">
+        <section ref={sectorsRef} className="pb-20">
+          <div className="text-center mb-14">
             <h2 className="text-4xl font-bold text-white mb-4">Supported Sectors</h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 hover:cursor-default">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 hover:cursor-default">
             {SECTORS.map(({ icon: Icon, label, sub, active }) => (
               <button
                 key={label}
                 onClick={() => active && navigate('/agriculture')}
                 disabled={!active}
-                className={`card flex flex-col items-center text-center group transition-all duration-300 p-8 ${active
-                  ? 'cursor-pointer hover:border-sky-500/40 hover:shadow-glow-sky'
+                className={`card flex flex-col items-center text-center group transition-all duration-300 p-10 bg-[#13161f] border border-[#2a3348] ${active
+                  ? 'cursor-pointer hover:border-[#3b455c]/50'
                   : 'opacity-50 cursor-not-allowed'
                   }`}
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 ${active ? 'bg-sky-500/10 border border-sky-500/20' : 'bg-white/5 border border-white/10'}`}>
-                  <Icon size={28} className={active ? 'text-sky-400' : 'text-slate-500'} />
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${active ? 'bg-sky-500/10 border border-sky-500/20' : 'bg-white/5 border border-white/10'}`}>
+                  <Icon size={26} className={active ? 'text-sky-400' : 'text-slate-500'} />
                 </div>
                 <p className="font-bold text-lg text-white mb-2">{label}</p>
-                <p className={`text-sm ${active ? 'text-teal-400' : 'text-slate-500'}`}>{sub}</p>
+                <p className={`text-sm tracking-wide ${active ? 'text-teal-400' : 'text-slate-500'}`}>{sub}</p>
 
-                <div className={`mt-6 flex items-center gap-1 text-sm font-semibold ${active ? 'text-sky-400' : 'text-slate-500'}`}>
+                <div className={`mt-8 flex items-center gap-1 text-sm font-semibold tracking-wide ${active ? 'text-sky-400 hover:text-sky-300' : 'text-slate-500'}`}>
                   {active ? 'Open' : 'Coming soon'} <ChevronRight size={16} />
                 </div>
               </button>
