@@ -8,6 +8,7 @@ import {
   ChevronRight,
   Zap,
 } from 'lucide-react';
+import heroIllustration from '../assets/hero-illustration.png';
 
 // ── Sector config ──
 const SECTORS = [
@@ -107,7 +108,7 @@ const Home: React.FC = () => {
 
         {/* Illustration — full-width floor pinned to bottom */}
         <img
-          src="/hero-illustration.png"
+          src={heroIllustration}
           alt="Professionals across industry sectors"
           className="absolute bottom-0 left-0 w-full pointer-events-none"
           style={{ height: '38vh', objectFit: 'cover', objectPosition: 'bottom center' }}
