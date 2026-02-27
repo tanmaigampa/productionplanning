@@ -72,7 +72,7 @@ const Home: React.FC = () => {
       <main className="max-w-6xl mx-auto px-6">
 
         {/* ── Hero ── */}
-        <section className="pt-28 pb-20 text-center animate-slide-up">
+        <section className="min-h-[calc(100vh-65px)] flex flex-col items-center justify-center text-center animate-slide-up">
 
           <h1 className="text-5xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
             Plan with Confidence.<br />
@@ -101,29 +101,21 @@ const Home: React.FC = () => {
               <button
                 key={label}
                 onClick={() => active && route && navigate(route)}
-                disabled={!active}
-                className={`card text-left group transition-all duration-200 ${active
-                  ? 'cursor-pointer hover:border-sky-400 hover:shadow-md'
-                  : 'cursor-default opacity-60'
-                  }`}
+                className="card text-left group transition-all duration-200 cursor-pointer hover:border-sky-400 hover:shadow-md"
               >
                 {/* Icon — centered */}
                 <div className="flex justify-center mb-4">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${active
-                    ? 'bg-sky-50 border border-sky-200'
-                    : 'bg-slate-100 border border-slate-200'
-                    }`}>
-                    <Icon size={22} className={active ? 'text-sky-600' : 'text-slate-400'} />
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-sky-50 border border-sky-200">
+                    <Icon size={22} className="text-sky-600" />
                   </div>
                 </div>
 
                 {/* Text */}
                 <p className="font-bold text-sm text-slate-900 mb-1 text-center">{label}</p>
-                <p className={`text-xs text-center mb-4 ${active ? 'text-teal-600' : 'text-slate-400'}`}>{sub}</p>
+                <p className="text-xs text-center text-teal-600 mb-4">{sub}</p>
 
                 {/* Action row */}
-                <div className={`flex items-center gap-1 text-xs font-semibold justify-center ${active ? 'text-sky-600 group-hover:text-sky-500' : 'text-slate-400'
-                  }`}>
+                <div className="flex items-center gap-1 text-xs font-semibold justify-center text-sky-600 group-hover:text-sky-500">
                   {actionLabel} <ChevronRight size={13} />
                 </div>
               </button>
