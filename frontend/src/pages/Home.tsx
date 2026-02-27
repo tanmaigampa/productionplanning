@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
+  ArrowRight,
   Wheat,
   Factory,
   FlaskConical,
@@ -8,137 +9,101 @@ import {
   ChevronRight,
   Zap,
 } from 'lucide-react';
-import heroIllustration from '../assets/hero-illustration.png';
 
-// ── Sector config ──
 const SECTORS = [
-  {
-    icon: Wheat,
-    label: 'Agriculture',
-    sub: 'Weather-driven crop planning',
-    active: true,
-    route: '/agriculture',
-    actionLabel: 'Open',
-    iconBg: 'bg-green-50 border-green-200',
-    iconColor: 'text-green-600',
-  },
-  {
-    icon: Factory,
-    label: 'Manufacturing',
-    sub: 'Demand-driven production',
-    active: false,
-    route: null,
-    actionLabel: 'Coming Soon',
-    iconBg: 'bg-amber-50 border-amber-200',
-    iconColor: 'text-amber-700',
-  },
-  {
-    icon: FlaskConical,
-    label: 'Pharma',
-    sub: 'Quality risk management',
-    active: false,
-    route: null,
-    actionLabel: 'Coming Soon',
-    iconBg: 'bg-purple-50 border-purple-200',
-    iconColor: 'text-purple-600',
-  },
-  {
-    icon: Package,
-    label: 'Food & Beverage',
-    sub: 'Perishable production',
-    active: false,
-    route: null,
-    actionLabel: 'Coming Soon',
-    iconBg: 'bg-orange-50 border-orange-200',
-    iconColor: 'text-orange-500',
-  },
+  { icon: Wheat, label: 'Agriculture', sub: 'Weather-driven crop planning', active: true },
+  { icon: Factory, label: 'Manufacturing', sub: 'Demand-driven production', active: false },
+  { icon: FlaskConical, label: 'Pharma', sub: 'Quality risk management', active: false },
+  { icon: Package, label: 'Food & Beverage', sub: 'Perishable production', active: false },
 ];
 
-// ──────────────────────────────────────────────
 const Home: React.FC = () => {
   const navigate = useNavigate();
   const sectorsRef = useRef<HTMLDivElement>(null);
 
-  const scrollToSectors = () =>
+  const scrollToSectors = () => {
     sectorsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-800">
+    <div className="min-h-screen bg-[#0f1117] dot-grid text-slate-200">
 
       {/* ── Navbar ── */}
-      <header className="border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          {/* Brand */}
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-sky-600 flex items-center justify-center">
-              <Zap size={15} className="text-white" />
+      <header className="border-b border-[#2a3348] bg-[#0f1117]/80 backdrop-blur-md sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center shadow-glow-sky">
+              <Zap size={16} className="text-white" />
             </div>
-            <span className="text-lg font-bold tracking-tight text-slate-900">Quantix</span>
+            <div>
+              <span className="text-lg font-bold tracking-tight text-white">Quantix</span>
+              <span className="ml-2 text-xs text-slate-500 font-mono uppercase tracking-widest">v1.0</span>
+            </div>
           </div>
         </div>
       </header>
 
-      {/* ── Hero ── */}
-      <section
-        className="relative overflow-hidden bg-[#f8fafc]"
-        style={{ height: 'calc(100vh - 65px)' }}
-      >
-        {/* Text + CTA — generously spaced from top */}
-        <div className="flex flex-col items-center text-center px-6 pt-[12vh]">
-          <h1
-            className="text-5xl sm:text-[3.5rem] md:text-[4rem] font-extrabold text-slate-900 tracking-tight"
-            style={{ lineHeight: '1.12' }}
-          >
+      <main className="max-w-7xl mx-auto px-6 py-20 space-y-28">
+
+        {/* ── Hero ── */}
+        <section className="text-center animate-slide-up">
+          <h1 className="text-5xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6 mt-12">
             Plan with Confidence.<br />
-            <span className="text-sky-600">Execute with Precision.</span>
+            <span className="text-sky-400">Execute with Precision.</span>
           </h1>
 
-          <p className="text-lg text-slate-500 max-w-xl leading-[1.75] mt-5">
-            A next-generation optimization that models uncertainty and prepares your
-            production strategy for every scenario.
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
+            A next-generation optimization that models uncertainty and prepares your production strategy for every scenario
           </p>
 
-          <button
-            onClick={scrollToSectors}
-            className="btn-primary text-base px-8 py-3 mt-8"
-          >
-            Select Sector <ChevronRight size={16} />
-          </button>
-        </div>
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <button
+              onClick={scrollToSectors}
+              className="btn-primary text-base px-7 py-3 animate-pulse-glow"
+            >
+              Select Sector <ArrowRight size={16} />
+            </button>
+          </div>
 
-        {/* Illustration — full-width floor pinned to bottom */}
-        <img
-          src={heroIllustration}
-          alt="Professionals across industry sectors"
-          className="absolute bottom-0 left-0 w-full pointer-events-none"
-          style={{ height: '32vh', objectFit: 'cover', objectPosition: 'bottom center' }}
-        />
-
-      </section>
-
-      <main className="max-w-6xl mx-auto px-6">
+          {/* Quick stats row */}
+          <div className="mt-16 grid grid-cols-3 gap-px bg-[#2a3348] rounded-xl overflow-hidden max-w-xl mx-auto border border-[#2a3348]">
+            {[
+              { label: 'Solver', value: 'PuLP / CBC' },
+              { label: 'Method', value: '2-Stage SP' },
+              { label: 'Sectors', value: '4 (1 Active)' },
+            ].map(s => (
+              <div key={s.label} className="bg-[#181d27] px-6 py-4 text-center">
+                <p className="text-xs text-slate-500 uppercase tracking-wider font-medium mb-1">{s.label}</p>
+                <p className="text-sm font-semibold text-white font-mono">{s.value}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* ── Sectors ── */}
-        <section ref={sectorsRef} className="pb-24">
+        <section ref={sectorsRef}>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-3">Supported Sectors</h2>
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {SECTORS.map(({ icon: Icon, label, sub, active, route, actionLabel, iconBg, iconColor }) => (
+            {SECTORS.map(({ icon: Icon, label, sub, active }) => (
               <button
                 key={label}
-                onClick={() => active && route && navigate(route)}
-                className="card group transition-all duration-200 cursor-pointer hover:border-slate-300 hover:shadow-md flex flex-col items-center py-8 px-6"
+                onClick={() => active && navigate('/agriculture')}
+                disabled={!active}
+                className={`card flex flex-col items-center text-center group transition-all duration-300 ${active
+                  ? 'cursor-pointer hover:border-sky-500/40 hover:shadow-glow-sky'
+                  : 'opacity-50 cursor-not-allowed'
+                  }`}
               >
-                {/* Icon — centered */}
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border mb-5 ${iconBg}`}>
-                  <Icon size={26} className={iconColor} />
+                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 ${active ? 'bg-sky-500/10 border border-sky-500/20' : 'bg-white/5 border border-white/10'}`}>
+                  <Icon size={20} className={active ? 'text-sky-400' : 'text-slate-500'} />
                 </div>
+                <p className="font-bold text-sm text-white mb-1">{label}</p>
+                <p className={`text-xs ${active ? 'text-teal-400' : 'text-slate-500'}`}>{sub}</p>
 
-                {/* Text */}
-                <p className="font-bold text-base text-slate-900 mb-1.5 text-center">{label}</p>
-                <p className="text-sm text-center text-slate-500 mb-5 leading-relaxed">{sub}</p>
-
-                {/* Action row */}
-                <div className="flex items-center gap-1 text-sm font-semibold justify-center text-sky-600 group-hover:text-sky-500 mt-auto">
-                  {actionLabel} <ChevronRight size={14} />
+                <div className={`mt-4 flex items-center gap-1 text-xs font-semibold ${active ? 'text-sky-400' : 'text-slate-500'}`}>
+                  {active ? 'Open' : 'Coming soon'} <ChevronRight size={13} />
                 </div>
               </button>
             ))}
@@ -147,10 +112,11 @@ const Home: React.FC = () => {
 
       </main>
 
-      {/* ── Footer ── */}
-      <footer className="border-t border-slate-200 py-6 bg-white">
-        <p className="text-center text-xs text-slate-400 font-mono">
-          Quantix · Two-Stage Stochastic Production Planning
+      {/* Footer */}
+      <footer className="border-t border-[#2a3348] mt-10 py-8">
+        <p className="text-center text-xs text-slate-600 font-mono">
+          Quantix · Two-Stage Stochastic Production Planning · API at{' '}
+          <a href="http://localhost:8000/docs" className="text-sky-600 hover:text-sky-400 transition-colors">localhost:8000/docs</a>
         </p>
       </footer>
     </div>
