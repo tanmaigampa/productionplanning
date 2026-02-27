@@ -151,7 +151,7 @@ export const AgricultureModule: React.FC = () => {
       {/* ── Top Bar ── */}
       <div className="border-b border-[#2a3348] bg-[#0f1117]/90 backdrop-blur-md sticky top-0 z-20 px-6 py-3 flex items-center gap-4">
         <button
-          onClick={() => navigate('/agriculture')}
+          onClick={() => navigate(-1)}
           className="w-9 h-9 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white border border-white/10 transition-all"
         >
           <ArrowLeft size={16} />
