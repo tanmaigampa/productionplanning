@@ -1,5 +1,5 @@
 """
-Agriculture Optimizer - Xanadu Farms Two-Stage Stochastic Model
+Agriculture Optimizer - Two-Stage Stochastic Model
 
 Stage 1:  How many acres to plant per berry variety (before weather known)
 Stage 2:  After weather scenario unfolds:

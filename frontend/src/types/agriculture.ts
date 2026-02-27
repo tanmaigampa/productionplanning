@@ -1,5 +1,5 @@
 /**
- * TypeScript type definitions for Agriculture Module (Xanadu Farms model)
+ * TypeScript type definitions for Agriculture Module
  * Prices and plants_per_acre are per-crop.
  */
 

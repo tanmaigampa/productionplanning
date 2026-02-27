@@ -1,6 +1,6 @@
 """
 Pydantic schemas for Agriculture module API endpoints.
-Xanadu Farms two-stage stochastic model.
+Two-stage stochastic model.
 Prices and plants_per_acre are now per-crop.
 """
 
