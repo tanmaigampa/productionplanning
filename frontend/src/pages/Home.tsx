@@ -78,35 +78,42 @@ const Home: React.FC = () => {
       </header>
 
       {/* ── Hero ── */}
-      <section className="min-h-[calc(100vh-65px)] flex flex-col items-center justify-center text-center animate-slide-up gap-8 py-10">
-
-        {/* Text + CTA — constrained width */}
-        <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-6">
-          <h1 className="text-5xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+      <section
+        className="relative overflow-hidden bg-[#f8fafc]"
+        style={{ minHeight: 'calc(100vh - 65px)' }}
+      >
+        {/* Text + CTA — vertically centered in upper ~55% */}
+        <div className="flex flex-col items-center text-center px-6 pt-[8vh] pb-[4vh]">
+          <h1
+            className="text-5xl sm:text-6xl font-extrabold text-slate-900 tracking-tight"
+            style={{ lineHeight: '1.15' }}
+          >
             Plan with Confidence.<br />
             <span className="text-sky-600">Execute with Precision.</span>
           </h1>
 
-          <p className="text-lg text-slate-500 max-w-2xl leading-relaxed">
+          <p className="text-lg text-slate-500 max-w-2xl leading-[1.8] mt-5">
             A next-generation optimization that models uncertainty and prepares your
             production strategy for every scenario.
           </p>
 
-          <button
-            onClick={scrollToSectors}
-            className="btn-primary text-base px-8 py-3"
-          >
-            Select Sector <ChevronRight size={16} />
-          </button>
+          {/* 40px spacing before button */}
+          <div style={{ marginTop: '40px' }}>
+            <button
+              onClick={scrollToSectors}
+              className="btn-primary text-base px-8 py-3"
+            >
+              Select Sector <ChevronRight size={16} />
+            </button>
+          </div>
         </div>
 
-        {/* Illustration — full viewport width, bg matches page */}
-        <div className="w-full bg-[#f8fafc]">
+        {/* Illustration — pinned to bottom, wide banner */}
+        <div className="absolute bottom-0 left-0 right-0 flex justify-center bg-[#f8fafc]">
           <img
             src="/hero-illustration.png"
             alt="Professionals across industry sectors"
-            className="w-full object-contain"
-            style={{ maxHeight: '40vh' }}
+            style={{ width: '85%', maxHeight: '38vh', objectFit: 'contain', objectPosition: 'bottom' }}
           />
         </div>
 
