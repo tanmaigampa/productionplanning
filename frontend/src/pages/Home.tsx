@@ -77,44 +77,42 @@ const Home: React.FC = () => {
         </div>
       </header>
 
+      {/* ── Hero ── */}
+      <section className="min-h-[calc(100vh-65px)] flex flex-col items-center justify-center text-center animate-slide-up gap-8 py-10">
+
+        {/* Text + CTA — constrained width */}
+        <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-6">
+          <h1 className="text-5xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Plan with Confidence.<br />
+            <span className="text-sky-600">Execute with Precision.</span>
+          </h1>
+
+          <p className="text-lg text-slate-500 max-w-2xl leading-relaxed">
+            A next-generation optimization that models uncertainty and prepares your
+            production strategy for every scenario.
+          </p>
+
+          <button
+            onClick={scrollToSectors}
+            className="btn-primary text-base px-8 py-3"
+          >
+            Select Sector <ChevronRight size={16} />
+          </button>
+        </div>
+
+        {/* Illustration — full viewport width, bg matches page */}
+        <div className="w-full bg-[#f8fafc]">
+          <img
+            src="/hero-illustration.png"
+            alt="Professionals across industry sectors"
+            className="w-full object-contain"
+            style={{ maxHeight: '40vh' }}
+          />
+        </div>
+
+      </section>
+
       <main className="max-w-6xl mx-auto px-6">
-
-        {/* ── Hero ── */}
-        <section className="min-h-[calc(100vh-65px)] flex flex-col items-center justify-center text-center animate-slide-up gap-10 py-10">
-
-          {/* Text + CTA */}
-          <div className="flex flex-col items-center gap-6">
-            <h1 className="text-5xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Plan with Confidence.<br />
-              <span className="text-sky-600">Execute with Precision.</span>
-            </h1>
-
-            <p className="text-lg text-slate-500 max-w-2xl leading-relaxed">
-              A next-generation optimization that models uncertainty and prepares your
-              production strategy for every scenario.
-            </p>
-
-            <div className="flex justify-center">
-              <button
-                onClick={scrollToSectors}
-                className="btn-primary text-base px-8 py-3"
-              >
-                Select Sector <ChevronRight size={16} />
-              </button>
-            </div>
-          </div>
-
-          {/* Illustration */}
-          <div className="w-full max-w-4xl mx-auto">
-            <img
-              src="/hero-illustration.png"
-              alt="Professionals across industry sectors"
-              className="w-full h-auto object-contain rounded-2xl"
-              style={{ maxHeight: '260px' }}
-            />
-          </div>
-
-        </section>
 
         {/* ── Sectors ── */}
         <section ref={sectorsRef} className="pb-24">
