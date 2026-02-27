@@ -57,7 +57,7 @@ const Home: React.FC = () => {
 
       {/* ── Navbar ── */}
       <header className="border-b border-[#2a3348] bg-[#0f1117]/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="w-full px-8 md:px-16 py-4 flex justify-between items-center">
+        <div className="w-full max-w-[1600px] mx-auto px-8 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center shadow-glow-sky">
               <Zap size={16} className="text-white" />
@@ -70,38 +70,38 @@ const Home: React.FC = () => {
         </div>
       </header>
 
-      <main className="w-full px-8 md:px-16 py-20 space-y-28">
+      <main className="w-full max-w-[1600px] mx-auto px-10 sm:px-16 py-16 space-y-32">
 
         {/* ── Hero ── */}
-        <section className="text-center animate-slide-up">
-          <h1 className="text-5xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6 mt-12">
+        <section className="text-center animate-slide-up mt-12">
+          <h1 className="text-6xl sm:text-[5.5rem] font-extrabold text-white tracking-tight leading-[1.1] mb-8">
             Plan with Confidence.<br />
             <span className="text-sky-400">Execute with Precision.</span>
           </h1>
 
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
+          <p className="text-xl sm:text-2xl text-slate-400 max-w-4xl mx-auto leading-relaxed mb-12">
             A next-generation optimization that models uncertainty and prepares your production strategy for every scenario
           </p>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <div className="mt-12 flex flex-wrap justify-center gap-4">
             <button
               onClick={scrollToSectors}
-              className="btn-primary text-base px-7 py-3 animate-pulse-glow"
+              className="btn-primary text-lg px-9 py-4 animate-pulse-glow"
             >
-              Select Sector <ArrowRight size={16} />
+              Select Sector <ArrowRight size={20} />
             </button>
           </div>
 
           {/* Quick stats row */}
-          <div className="mt-16 grid grid-cols-3 gap-px bg-[#2a3348] rounded-xl overflow-hidden max-w-xl mx-auto border border-[#2a3348]">
+          <div className="mt-20 grid grid-cols-3 gap-px bg-[#2a3348] rounded-xl overflow-hidden max-w-3xl mx-auto border border-[#2a3348]">
             {[
               { label: 'Solver', value: 'PuLP / CBC' },
               { label: 'Method', value: '2-Stage SP' },
               { label: 'Sectors', value: '4 (1 Active)' },
             ].map(s => (
-              <div key={s.label} className="bg-[#181d27] px-6 py-4 text-center">
-                <p className="text-xs text-slate-500 uppercase tracking-wider font-medium mb-1">{s.label}</p>
-                <p className="text-sm font-semibold text-white font-mono">{s.value}</p>
+              <div key={s.label} className="bg-[#181d27] px-8 py-5 text-center">
+                <p className="text-sm text-slate-500 uppercase tracking-wider font-medium mb-2">{s.label}</p>
+                <p className="text-lg font-semibold text-white font-mono">{s.value}</p>
               </div>
             ))}
           </div>
@@ -109,18 +109,18 @@ const Home: React.FC = () => {
 
         {/* ── Features ── */}
         <section>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-3">How It Works</h2>
-            <p className="text-slate-400 max-w-xl mx-auto">Three core capabilities that power every optimization run.</p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">How It Works</h2>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">Three core capabilities that power every optimization run.</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {FEATURES.map(({ icon: Icon, color, bg, title, desc }) => (
-              <div key={title} className="card group hover:border-sky-500/30 transition-all duration-300">
-                <div className={`w-11 h-11 rounded-lg border flex items-center justify-center mb-5 ${bg}`}>
-                  <Icon size={22} className={color} />
+              <div key={title} className="card group hover:border-sky-500/30 transition-all duration-300 p-8">
+                <div className={`w-14 h-14 rounded-xl border flex items-center justify-center mb-6 ${bg}`}>
+                  <Icon size={28} className={color} />
                 </div>
-                <h3 className="text-base font-bold text-white mb-2">{title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{desc}</p>
+                <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
+                <p className="text-base text-slate-400 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
@@ -128,28 +128,28 @@ const Home: React.FC = () => {
 
         {/* ── Sectors ── */}
         <section ref={sectorsRef}>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-3">Supported Sectors</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">Supported Sectors</h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 hover:cursor-default">
             {SECTORS.map(({ icon: Icon, label, sub, active }) => (
               <button
                 key={label}
                 onClick={() => active && navigate('/agriculture')}
                 disabled={!active}
-                className={`card flex flex-col items-center text-center group transition-all duration-300 ${active
+                className={`card flex flex-col items-center text-center group transition-all duration-300 p-8 ${active
                   ? 'cursor-pointer hover:border-sky-500/40 hover:shadow-glow-sky'
                   : 'opacity-50 cursor-not-allowed'
                   }`}
               >
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 ${active ? 'bg-sky-500/10 border border-sky-500/20' : 'bg-white/5 border border-white/10'}`}>
-                  <Icon size={20} className={active ? 'text-sky-400' : 'text-slate-500'} />
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 ${active ? 'bg-sky-500/10 border border-sky-500/20' : 'bg-white/5 border border-white/10'}`}>
+                  <Icon size={28} className={active ? 'text-sky-400' : 'text-slate-500'} />
                 </div>
-                <p className="font-bold text-sm text-white mb-1">{label}</p>
-                <p className={`text-xs ${active ? 'text-teal-400' : 'text-slate-500'}`}>{sub}</p>
+                <p className="font-bold text-lg text-white mb-2">{label}</p>
+                <p className={`text-sm ${active ? 'text-teal-400' : 'text-slate-500'}`}>{sub}</p>
 
-                <div className={`mt-4 flex items-center gap-1 text-xs font-semibold ${active ? 'text-sky-400' : 'text-slate-500'}`}>
-                  {active ? 'Open' : 'Coming soon'} <ChevronRight size={13} />
+                <div className={`mt-6 flex items-center gap-1 text-sm font-semibold ${active ? 'text-sky-400' : 'text-slate-500'}`}>
+                  {active ? 'Open' : 'Coming soon'} <ChevronRight size={16} />
                 </div>
               </button>
             ))}
